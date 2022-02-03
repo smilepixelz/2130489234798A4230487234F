@@ -62,7 +62,7 @@ end
 
 local encoded = encode(hwid)
 
-local whitelistedhwids = {"hwid here", "hwid here", "hwid here"}
+local whitelistedhwids = {"2603:8000:7d00:8d18:557f:2fab:db47:a0fa"}
 
 function isWhitelisted()
     for i,v in pairs(whitelistedhwids) do 
