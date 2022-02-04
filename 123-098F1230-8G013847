@@ -3,14 +3,16 @@ local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
 local whitelistedhwids = {"CACF3DDA-149D-45EF-8E46-36B37604CB31", "294B6DCD-E5E0-4A5C-B45C-103129B9C0CA"}
 
 function isWhitelisted()
+    local b = false
     for i,v in pairs(whitelistedhwids) do 
          if v == hwid then
-            return true
+            b = true
             break
-         else 
-            return false
-         end
+         else
+            b = false
+        end
     end
+    return b
 end
 
 if isWhitelisted() then
