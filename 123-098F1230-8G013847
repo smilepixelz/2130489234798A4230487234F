@@ -1,49 +1,10 @@
-local Key53 = 24305989081723
-local Key14 = 3003
-local inv256
-function encode(str)
-    if not inv256 then
-        inv256 = {}
-        for M = 0, 127 do
-        local inv = -1
-        repeat inv = inv + 2
-        until inv * (2*M + 1) % 256 == 1
-        inv256[M] = inv
-    end
-end
-local K, F = Key53, 16384 + Key14
-return (str:gsub('.',function(m)
-    local L = K % 274877906944  -- 2^38
-    local H = (K - L) / 274877906944
-    local M = H % 128
-    m = m:byte()
-    local c = (m * inv256[M] - (H - M) / 128) % 256
-    K = L * F + H + c + m
-    return ('%02x'):format(c)
-    end))
-end
-function decode(str)
-    local K, F = Key53, 16384 + Key14
-    return (str:gsub('%x%x',
-    function(c)
-        local L = K % 274877906944  -- 2^38
-        local H = (K - L) / 274877906944
-        local M = H % 128
-        c = tonumber(c, 16)
-        local m = (c + (H - M) / 128) * (2*M + 1) % 256
-        K = L * F + H + c + m
-        return string.char(m)
-    end))
-end
-
 local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
-local encoded = encode(hwid)
 
 local whitelistedhwids = {"CACF3DDA-149D-45EF-8E46-36B37604CB31", "294B6DCD-E5E0-4A5C-B45C-103129B9C0CA", }
 
 function isWhitelisted()
     for i,v in pairs(whitelistedhwids) do 
-         if v == decode(encoded) then
+         if v == hwid then
             return true
          else 
             return false
