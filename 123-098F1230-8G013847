@@ -6,6 +6,7 @@ function isWhitelisted()
     for i,v in pairs(whitelistedhwids) do 
          if v == hwid then
             return true
+            break
          else 
             return false
          end
