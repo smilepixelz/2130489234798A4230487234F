@@ -10,7 +10,7 @@ local WhitelistMethod = {
 
 function check() 
     if WhitelistMethod["DevsOnly"] == true then 
-        local Devs = {"F0rdB0t"} 
+        local Devs = {"F0rdB0t", "RyOnKoolAidz'} 
         for _,v in pairs(Devs) do 
             if game.Players.LocalPlayer.Name == v then 
                 return true
@@ -31,7 +31,7 @@ function check()
             end
         end
     elseif WhitelistMethod["TesterWhitelist"] == true then 
-        local testers = {"F0rdB0t", "AdmiralBaconius", "QuaviarQuandaleThe3rd"}
+        local testers = {"F0rdB0t", "AdmiralBaconius", "QuaviarQuandaleThe3rd", "RyOnKoolAidz'}
         for _,v in pairs(testers) do 
             if game.Players.LocalPlayer.Name == v then 
                 return true
