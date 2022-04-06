@@ -31,7 +31,7 @@ function check()
             end
         end
     elseif WhitelistMethod["TesterWhitelist"] == true then 
-        local testers = {"F0rdB0t", "AdmiralBaconius", "QuaviarQuandaleThe3rd", "RyOnKoolAidz'}
+        local testers = {"F0rdB0t", "AdmiralBaconius", "QuaviarQuandaleThe3rd", "RyOnKoolAidz"}
         for _,v in pairs(testers) do 
             if game.Players.LocalPlayer.Name == v then 
                 return true
