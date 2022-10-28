@@ -26,7 +26,7 @@ function check()
             if game.Players.LocalPlayer:IsInGroup(v) then 
                 return true 
             else 
-                game.Players.LocalPlayer:Kick("Please join group ( " .. v .. " ) and Re-Execute.")
+                game.Players.LocalPlayer:Kick("Please join group ( " .. v .. " ) and re-execute.")
                 return false
             end
         end
